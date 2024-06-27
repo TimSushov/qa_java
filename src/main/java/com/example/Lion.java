@@ -5,12 +5,12 @@ import java.util.List;
 public class Lion {
 
     boolean hasMane;
-    private int Kittens;
-    private List<String> Food;
+    private Feline feline;
+    private String food;
 
-    public Lion(String sex, int getKittens, List<String> getFood) throws Exception {
-        this.Kittens=Kittens;
-        this.Food = Food;
+    public Lion(String sex, String food, Feline feline) throws Exception {
+        this.feline =feline;
+        this.food=food;
 
         if ("Самец".equals(sex)) {
             hasMane = true;
@@ -21,15 +21,19 @@ public class Lion {
         }
     }
 
-    public int getKittens() {
-        return Kittens;
+    public int getKittens() throws Exception {
+        return feline.getKittens();
     }
 
-    public boolean doesHaveMane() {
+    public int getKittens(int kittensCount) throws Exception {
+        return feline.getKittens(kittensCount);
+    }
+
+    public boolean doesHaveMane() throws Exception {
         return hasMane;
     }
 
-    public List<String> getFood () throws Exception {
-        return Food;
+    public List<String> getFood() throws Exception {
+        return feline.getFood(food);
     }
 }
