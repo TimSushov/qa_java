@@ -34,10 +34,9 @@ public class TestLionSexType {
 
     @Test
     public void testGetFoodLion() throws Exception {
-
         Feline feline = new Feline();
         Feline felineSpy = Mockito.spy(feline);
-        Lion lion = new Lion(sexLion, "Хищник", felineSpy );
+        Lion lion = new Lion(sexLion,  felineSpy );
         Assert.assertEquals(hasMane, lion.doesHaveMane());
     }
 
