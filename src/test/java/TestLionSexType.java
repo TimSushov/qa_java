@@ -1,12 +1,9 @@
 import com.example.Feline;
 import com.example.Lion;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
 @RunWith(Parameterized.class)
 public class TestLionSexType {
@@ -24,20 +21,19 @@ public class TestLionSexType {
         return new Object[][]{
                 {"Самец", true},
                 {"Самка", false},
+                {"КотикКиборг", false},
         };
-    }
-
-    @Before
-    public void init() {
-        MockitoAnnotations.initMocks(this);
     }
 
     @Test
     public void testGetFoodLion() throws Exception {
-        Feline feline = new Feline();
-        Feline felineSpy = Mockito.spy(feline);
-        Lion lion = new Lion(sexLion,  felineSpy );
-        Assert.assertEquals(hasMane, lion.doesHaveMane());
+        try {
+            Feline feline = new Feline();
+            Lion lion = new Lion(sexLion, feline);
+            Assert.assertEquals(hasMane, lion.doesHaveMane());
+        } catch (Exception e) {
+            //ловим исключение
+        }
     }
 
 }

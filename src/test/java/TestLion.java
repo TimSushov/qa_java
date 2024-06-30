@@ -4,8 +4,8 @@ import com.example.Lion;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Collections;
@@ -14,7 +14,7 @@ import java.util.Collections;
 @RunWith(MockitoJUnitRunner.class)
 public class TestLion {
 
-    @Spy
+    @Mock
     Feline feline;
 
     @Test
