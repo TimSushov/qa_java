@@ -9,7 +9,6 @@ public class Feline extends Animal implements Predator {
         return getFood("Хищник");
     }
 
-
     public String getFamily() {
         return "Кошачьи";
     }

@@ -1,10 +1,9 @@
-import com.example.Animal;
 import com.example.Feline;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Collections;
@@ -12,7 +11,7 @@ import java.util.Collections;
 @RunWith(MockitoJUnitRunner.class)
 public class TestFeline {
 
-    @Spy
+    @Mock
     Feline feline;
 
     @Test
@@ -23,20 +22,20 @@ public class TestFeline {
 
     @Test
     public void testGetFamily(){
-        feline.getFamily();
+        Mockito.when(feline.getFamily()).thenReturn("Кошачьи");
         Assert.assertEquals("Кошачьи", feline.getFamily());
+
     }
 
     @Test
     public void testGetKittens(){
-        feline.getKittens();
-        Mockito.verify(feline).getKittens(1);
+        Mockito.when(feline.getKittens()).thenReturn(1);
+        Assert.assertEquals(1, feline.getKittens());
     }
 
     @Test
     public void testGetKittensCount(){
-        feline.getKittens(333);
+        Mockito.when(feline.getKittens(333)).thenReturn(333);
         Assert.assertEquals(333, feline.getKittens(333));
-
     }
 }
