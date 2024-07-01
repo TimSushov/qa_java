@@ -26,7 +26,7 @@ public class TestLion {
     @Test
     public void testGetKittensCountLion() throws Exception {
         Lion lion = new Lion("Самец", feline);
-        lion.getKittens(333);
+        Mockito.when(lion.getKittens(333)).thenReturn(333);
         Assert.assertEquals(333, lion.getKittens(333));
     }
 
